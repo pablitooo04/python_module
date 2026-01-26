@@ -1,4 +1,4 @@
-content="""\
+content = """\
 [CLASSIFIED] New security protocols archived
 Vault automatically sealed upon completion
 """

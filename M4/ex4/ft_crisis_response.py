@@ -18,7 +18,7 @@ if __name__ == "__main__":
         print("RESPONSE: Archive not found in storage matrix")
     except (PermissionError):
         print("RESPONSE: Security protocols deny access")
-    
+
     print("STATUS: Crisis handled, security maintained")
     try:
         print("ROUTINE ACCESS: Attempting access to 'standard_archive.txt'...")
@@ -28,5 +28,5 @@ if __name__ == "__main__":
         print("RESPONSE: Archive not found in storage matrix")
     except (PermissionError):
         print("RESPONSE: Security protocols deny access")
-    
+
     print("All crisis scenarios handled successfully. Archives secure.")
