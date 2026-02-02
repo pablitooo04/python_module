@@ -4,7 +4,7 @@ from typing import Any, Optional
 
 class DataProcessor(ABC):
     def __init__(self) -> None:
-        print("Initialising Data Processor...")
+        print(f"Initialising {self.__class__.__name__}...")
 
     @abstractmethod
     def process(self, data: Any) -> Optional[str]:
@@ -20,16 +20,19 @@ class DataProcessor(ABC):
 
 class NumericProcessor(DataProcessor):
     def __init__(self):
-        print("Initialising Numeric Processor...")
+        super().__init__()
 
     def process(self, data: Any) -> Optional[str]:
         if self.validate(data):
             print("Validation: Numeric data verified.")
             processed_len = f"Processed {len(data)} numeric values "
-            statistics = f"sum={sum(data)}, avg={sum(data)/len(data)}"
+            try:
+                statistics = f"sum={sum(data)}, avg={sum(data)/len(data)}"
+            except ZeroDivisionError as e:
+                raise ValueError(e)
             return processed_len + statistics
         else:
-            raise ValueError("Validation: Text data failed.")
+            raise ValueError("Validation: Numeric data failed.")
 
     def validate(self, data: Any) -> bool:
         if not isinstance(data, list):
@@ -46,7 +49,7 @@ class NumericProcessor(DataProcessor):
 
 class TextProcessor(DataProcessor):
     def __init__(self) -> None:
-        print("Initialising Text Processor...")
+        super().__init__()
 
     def process(self, data: Any) -> Optional[str]:
         if self.validate(data):
@@ -55,7 +58,7 @@ class TextProcessor(DataProcessor):
             statistics = f"{len(data)} characters, {number_of_word} words."
             return "Processed text: " + statistics
         else:
-            raise ValueError("Validaton: Text data failed.")
+            raise ValueError("Validation: Text data failed.")
 
     def validate(self, data: Any) -> bool:
         return isinstance(data, str)
@@ -66,11 +69,14 @@ class TextProcessor(DataProcessor):
 
 class LogProcessor(DataProcessor):
     def __init__(self):
-        print("Initialising Log Processor...")
+        super().__init__()
 
     def process(self, data: Any) -> Optional[str]:
         if self.validate(data):
-            keyword = data.split(sep=' ')[0]
+            try:
+                keyword = data.split(sep=' ')[0]
+            except IndexError as e:
+                raise ValueError("Log must not contain only spaces")
             keyword_t = f"[{''.join(c for c in keyword if c.isalpha())}] "
             print("Validation: Log entry verified.")
             return keyword_t + data
@@ -149,3 +155,4 @@ if __name__ == "__main__":
 
     except ValueError as e:
         print(e)
+
