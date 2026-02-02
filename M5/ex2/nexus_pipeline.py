@@ -2,11 +2,13 @@ from abc import ABC, abstractmethod
 from typing import Any, List, Protocol, Union
 import time
 
+
 class ProcessingStage(Protocol):
     """Blueprint Protocol for a data processing stage."""
 
     def process(self, data: Any) -> Any:
         ...
+
 
 class InputStage:
     """Stage 1: Input validation and parsing."""
@@ -15,7 +17,7 @@ class InputStage:
         # Print input in the same style as the subject
         if isinstance(data, dict):
             # Format dict manually
-            
+
             items = ", ".join(f"{k}: {v}" for k, v in data.items())
             print(f"Input: {{{items}}}")
         elif isinstance(data, str) and "," in data:
@@ -55,19 +57,22 @@ class OutputStage:
 
     def process(self, data: Any) -> str:
         if isinstance(data, dict) and "sensor" in data:
-            msg = f"Processed temperature reading: {data.get('value')}°C (Normal range)"
+            value = {data.get('value')}
+            msg = f"Processed temperature reading: {value}°C (Normal range)"
 
         elif isinstance(data, dict) and data.get("type") == "csv":
-            msg = f"User activity logged: {data.get('count')} actions processed"
+            msg = f"User activity logged: {data.get('count')} processed"
 
         elif isinstance(data, dict) and data.get("type") == "stream":
-            msg = f"Stream summary: {data.get('count')} readings, avg: {data.get('avg')}°C"
+            count, avg = data.get('count'), data.get('avg')
+            msg = f"Stream summary: {count} readings, avg: {avg}°C"
 
         else:
             msg = "Unknown output format"
 
         print(f"Output: {msg}")
         return msg
+
 
 class ProcessingPipeline(ABC):
     """Abstract base class for processing pipelines."""
@@ -88,7 +93,7 @@ class ProcessingPipeline(ABC):
             try:
                 current = stage.process(current)
             except Exception as e:
-                print(e)    
+                print(e)
                 raise
 
         self.last_duration = time.perf_counter() - start
@@ -97,6 +102,7 @@ class ProcessingPipeline(ABC):
     @abstractmethod
     def process(self, data: Any) -> Union[str, Any]:
         ...
+
 
 class JSONAdapter(ProcessingPipeline):
     def process(self, data: Any) -> Union[str, Any]:
@@ -111,6 +117,7 @@ class CSVAdapter(ProcessingPipeline):
 class StreamAdapter(ProcessingPipeline):
     def process(self, data: Any) -> Union[str, Any]:
         return self.process_stages(data)
+
 
 class NexusManager:
     """Manager orchestrating multiple pipelines polymorphically."""
@@ -130,10 +137,10 @@ class NexusManager:
             self.total_time += pipeline.last_duration
         return current
 
+
 def main() -> None:
     print("=== CODE NEXUS - ENTERPRISE PIPELINE SYSTEM ===\n")
 
-    nexus = NexusManager()
     print("Pipeline capacity: 1000 streams/second\n")
 
     print("Creating Data Processing Pipeline...")
@@ -209,6 +216,7 @@ def main() -> None:
         print("Recovery successful: Pipeline restored, processing resumed")
 
     print("\nNexus Integration complete. All systems operational.")
+
 
 if __name__ == "__main__":
     main()

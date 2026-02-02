@@ -75,7 +75,7 @@ class LogProcessor(DataProcessor):
         if self.validate(data):
             try:
                 keyword = data.split(sep=' ')[0]
-            except IndexError as e:
+            except IndexError:
                 raise ValueError("Log must not contain only spaces")
             keyword_t = f"[{''.join(c for c in keyword if c.isalpha())}] "
             print("Validation: Log entry verified.")
@@ -155,4 +155,3 @@ if __name__ == "__main__":
 
     except ValueError as e:
         print(e)
-
