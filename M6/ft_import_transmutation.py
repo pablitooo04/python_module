@@ -9,10 +9,11 @@ def main() -> None:
     except ImportError:
         print("Failed to import alchemy.elements module.")
     else:
-        print(f"alchemy.elements.create_fire(): {alchemy.elements.create_fire()}")
-    
+        print(
+            f"alchemy.elements.create_fire() {alchemy.elements.create_fire()}")
+
     print()
-    
+
     print("Method 2 - Specific function import:")
     try:
         from alchemy.elements import create_water
@@ -30,9 +31,9 @@ def main() -> None:
         print("Failed to import healing_potion from alchemy.potions")
     else:
         print(f"heal(): {heal()}")
-    
+
     print()
-    
+
     print("Method 4 - Multiple imports:")
 
     try:
@@ -48,6 +49,7 @@ def main() -> None:
     print()
 
     print("All import transmutation methods mastered!")
+
 
 if __name__ == "__main__":
     main()

@@ -10,6 +10,7 @@ except ImportError:
     print("Failed to import alchemy package.")
     exit(1)
 
+
 def main() -> None:
     print("=== Sacred Scroll Mastery ===\n")
 
@@ -48,6 +49,7 @@ def main() -> None:
         print(f"Author: {al.__author__}")
     except AttributeError:
         print("Author: AttributeError - not exposed")
+
 
 if __name__ == "__main__":
     main()

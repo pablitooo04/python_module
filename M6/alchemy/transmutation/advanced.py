@@ -7,7 +7,7 @@ except ImportError:
 
 
 def philosophers_stone() -> str:
-    result = f"Philosopher\'s stone created using"
+    result = "Philosopher\'s stone created using"
     result += f"{lead_to_gold()} and {healing_potion()}"
     return result
 

@@ -4,6 +4,7 @@ except ImportError:
     print("Failed to import from alchemy.elements package")
     exit(1)
 
+
 def lead_to_gold() -> str:
     return f"Lead transmuted to gold using {create_fire()}"
 

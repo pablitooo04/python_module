@@ -1,4 +1,4 @@
-"(temp,20)"class Plant0
+class Plant:
     """
     Represents a plant with a name, height in cm, and age in days.
     """
