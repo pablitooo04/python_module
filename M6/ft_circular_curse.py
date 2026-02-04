@@ -28,6 +28,8 @@ def main() -> None:
     print("record_spell('Lightning', 'air'): ", end="")
     print(f"{grm.record_spell('Lightning', 'air')}")
 
+    print()
+
     print("Circular dependency curse avoided using late imports!")
     print("All spells processed safely.")
 
