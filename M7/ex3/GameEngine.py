@@ -37,7 +37,7 @@ class GameEngine:
         action = self.strategy.execute_turn(self.hand, self.battlefield)
         self.turns_simulated += 1
         self.total_damage += action["damage_dealt"]
-
+        self.cards_created = len(self.hand) + len(self.battlefield)
         return action
 
     def get_engine_status(self) -> dict:

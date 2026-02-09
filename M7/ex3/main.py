@@ -28,7 +28,7 @@ def main() -> None:
     print("Simulating aggressive turn...")
     engine = GameEngine()
     engine.configure_engine(fantasy_factory, strategy)
-    enemy = CreatureCard("Enemy Player", 3, Rarity.LEGENDARY, 5, 5)
+    enemy = CreatureCard("Enemy Player", 3, Rarity.LEGENDARY.value, 5, 5)
     engine.battlefield.append(enemy)
 
     Actions = engine.simulate_turn()

@@ -5,6 +5,10 @@ class CreatureCard(Card):
     def __init__(self, name: str, cost: int, rarity: str,
                  attack: int, health: int) -> None:
         super().__init__(name, cost, rarity)
+        if not isinstance(attack, int) or attack < 1:
+            raise ValueError("Error: attack must be a positive int!")
+        if not isinstance(cost, int) or cost < 1:
+            raise ValueError("Error: health must be a positive int!")
         self.attack = attack
         self.health = health
         self.type = "creature"

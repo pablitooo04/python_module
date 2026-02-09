@@ -23,7 +23,8 @@ class AggressiveStrategy(GameStrategy):
             "targets_attacked": [],
             "damage_dealt": 0
         }
-
+        if not hand:
+            return turn_infos
         if not battlefield:
             return turn_infos
         prio_list = self.prioritize_targets(battlefield)
@@ -48,7 +49,7 @@ class AggressiveStrategy(GameStrategy):
 
     def get_strategy_name(self) -> str:
         """Returns the name of the strategy for reporting purposes."""
-        return "Agressive Strategy"
+        return "Aggressive Strategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
         """Prioritizes targets based on their cost, 
