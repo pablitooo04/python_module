@@ -2,6 +2,10 @@ from abc import ABC,abstractmethod
 from ex0.Card import Card
 
 class CardFactory(ABC):
+    """
+    Abstract base class for card factories.
+    Defines the interface for creating different types of cards and themed decks.
+    """
     @abstractmethod
     def create_creature(self, name_or_power: str | int | None = None) -> Card:
         ...

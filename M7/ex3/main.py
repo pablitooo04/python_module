@@ -7,6 +7,14 @@ from ex0.Card import Rarity
 
 
 def main() -> None:
+    """
+    Main function to demonstrate the Abstract Factory and Strategy patterns in a fantasy card game context.
+    Configures the game engine with a fantasy card factory and an aggressive strategy, simulates a
+    turn, and prints the results.
+    
+    Returns:
+        None
+    """
     print("=== DataDeck Game Engine ===\n")
 
     print("Configuring Fantasy Card Game...")

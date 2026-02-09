@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 
 class GameStrategy(ABC):
+    """Abstract base class for game strategies. 
+    Defines the interface for executing a turn, 
+    getting the strategy name,"""
     @abstractmethod
     def execute_turn(self, hand: list, battlefield: list) -> dict:
         ...
