@@ -1,4 +1,13 @@
 from abc import ABC, abstractmethod
+from enum import Enum
+
+
+class Rarity(Enum):
+    COMMON = "common"
+    UNCOMMON = "uncommon"
+    RARE = "rare"
+    EPIC = "epic"
+    LEGENDARY = "legendary"
 
 
 class Card(ABC):
@@ -12,7 +21,7 @@ class Card(ABC):
         ...
 
     def get_card_info(self) -> dict:
-        info = {
+        info: dict = {
             'name': self.name,
             'cost': self.cost,
             'rarity': self.rarity
@@ -21,4 +30,4 @@ class Card(ABC):
         return info
 
     def is_playable(self, available_mana: int) -> bool:
-        return available_mana >= 5
+        return available_mana >= self.cost

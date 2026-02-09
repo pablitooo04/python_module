@@ -1,12 +1,15 @@
 from ex0.CreatureCard import CreatureCard
+from ex0.Card import Rarity
 
 if __name__ == "__main__":
     print("=== DataDeck Card Foundation ===\n")
 
     print("Testing Abstract Base Class Design:\n")
 
-    dragon_card = CreatureCard("Fire Dragon", 5, "Legendary", 5, 5)
-    goblin_card = CreatureCard("Goblin Warrior", 5, "Legendary", 7, 10)
+    dragon_card = CreatureCard(
+        "Fire Dragon", 5, Rarity.LEGENDARY.value, 5, 5)
+    goblin_card = CreatureCard(
+        "Goblin Warrior", 5, Rarity.LEGENDARY.value, 7, 10)
 
     mana = 6
     print("CreatureCard Info:")
