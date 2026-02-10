@@ -1,4 +1,4 @@
-from ex0 import Card
+from ex0.Card import Card
 
 
 class ArtifactCard(Card):
@@ -48,4 +48,17 @@ class ArtifactCard(Card):
         Simulates activating the artifact's ability. Returns a dictionary
         containing the details of the ability activation.
         """
-        print("ability_activated")
+        if self.durability > 0:
+            self.durability -= 1
+            return {
+                'artifact': self.name,
+                'ability_effect': self.effect,
+                'remaining_durability': self.durability
+            }
+        else:
+            return {
+                'artifact': self.name,
+                'ability_effect': None,
+                'remaining_durability': 0,
+                'status': 'Artifact is broken and cannot be activated'
+            }

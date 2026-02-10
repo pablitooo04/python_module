@@ -1,4 +1,4 @@
-from ex0 import Card
+from ex0.Card import Card
 from random import choice
 
 
@@ -22,7 +22,7 @@ class Deck:
         Returns:
             bool: True if the card was successfully removed, False else"""
         try:
-            index: int = self.deck.index(card_name)
+            index: int = [card.name for card in self.deck].index(card_name)
         except ValueError:
             return False
         else:
@@ -37,7 +37,7 @@ class Deck:
         for _ in range(len(self.deck)):
             card: Card = choice(self.deck)
             self.remove_card(card.name)
-            self.deck.append(card)
+            shuffled_deck.append(card)
 
         self.deck = shuffled_deck
 
@@ -49,7 +49,7 @@ class Deck:
             None if the deck is empty.
         """
         if not self.deck:
-            return None
+            raise ValueError("Error: Deck is empty!")
         return self.deck.pop(0)
 
     def get_deck_stats(self) -> dict:

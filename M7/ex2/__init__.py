@@ -1,1 +1,1 @@
-from ex2.EliteCard import EliteCard  # noqa F401
+from ex2 import EliteCard  # noqa: F401

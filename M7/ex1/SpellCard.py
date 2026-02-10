@@ -1,4 +1,4 @@
-from ex0 import Card
+from ex0.Card import Card
 
 
 class SpellCard(Card):
@@ -36,7 +36,7 @@ class SpellCard(Card):
             return {
                 'card_played': self.name,
                 'mana_used': self.cost,
-                'effect': self.cost
+                'effect': "Spell effect of type: " + self.effect_type
             }
 
         else:
@@ -56,4 +56,8 @@ class SpellCard(Card):
         Returns:
             dict: A dictionary containing the details of the effect resolution.
         """
-        print("resolved_effect")
+        return {
+            'spell': self.name,
+            'effect_type': self.effect_type,
+            'targets': [target.name for target in targets]
+        }

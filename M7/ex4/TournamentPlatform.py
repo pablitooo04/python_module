@@ -35,6 +35,7 @@ class TournamentPlatform:
             raise ValueError("Too much players in this tournament!")
         else:
             self.tournament_players.append(card)
+            return f"{card.name} has been registered for the tournament!"
 
     def create_match(self, card1_id: str, card2_id: str) -> dict:
         """
@@ -84,8 +85,10 @@ class TournamentPlatform:
             list: A list of strings representing the leaderboard.
         """
         leaderboard = []
-        for i in range(len(self.tournament_players)):
-            player = self.tournament_players[i]
+        podium = sorted(self.tournament_players,
+                        key=lambda x: x.rating, reverse=True)
+        for i in range(len(podium)):
+            player = podium[i]
             line = f"{i + 1}. {player.name} "
             line += f"- Rating: {player.rating} "
             line += f"({player.wins}-{player.losses})"

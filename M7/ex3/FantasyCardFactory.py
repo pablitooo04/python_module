@@ -147,4 +147,6 @@ class FantasyCardFactory(CardFactory):
             dict: A dictionary containing the supported card types
             and their attributes.
         """
-        return FantasyCardFactory.cards
+        return {key: [_[0] for _ in value]
+                for key, value
+                in FantasyCardFactory.cards.items()}

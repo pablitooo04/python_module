@@ -14,9 +14,9 @@ def main() -> None:
     print("Testing Abstract Base Class Design:\n")
 
     dragon_card = CreatureCard(
-        "Fire Dragon", 5, Rarity.LEGENDARY.value, 5, 5)
+        "Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5)
     goblin_card = CreatureCard(
-        "Goblin Warrior", 5, Rarity.LEGENDARY.value, 7, 10)
+        "Goblin Warrior", 5, Rarity.LEGENDARY.value, 7, 7)
 
     mana = 6
     print("CreatureCard Info:")

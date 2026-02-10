@@ -1,0 +1,1 @@
+from ex4 import TournamentCard, TournamentPlatform  # noqa F401

@@ -51,7 +51,7 @@ class AggressiveStrategy(GameStrategy):
 
     def get_strategy_name(self) -> str:
         """Returns the name of the strategy for reporting purposes."""
-        return "Aggressive Strategy"
+        return "AggressiveStrategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
         """Prioritizes targets based on their cost,

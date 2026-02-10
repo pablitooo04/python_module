@@ -20,7 +20,7 @@ class CreatureCard(Card):
         super().__init__(name, cost, rarity)
         if not isinstance(attack, int) or attack < 1:
             raise ValueError("Error: attack must be a positive int!")
-        if not isinstance(cost, int) or cost < 1:
+        if not isinstance(health, int) or cost < 1:
             raise ValueError("Error: health must be a positive int!")
         self.attack = attack
         self.health = health
@@ -69,7 +69,7 @@ class CreatureCard(Card):
         return {
             'attacker': self.name,
             'target': target.name,
-            'damage_dealt': target.attack,
+            'damage_dealt': self.attack,
             'combat_resolved': target.health == 0
         }
 
