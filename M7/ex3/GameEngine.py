@@ -1,11 +1,13 @@
 from ex3.CardFactory import CardFactory
 from ex3.GameStrategy import GameStrategy
 
+
 class GameEngine:
-    def configure_engine(self, factory: CardFactory, strategy: GameStrategy) -> None:
+    def configure_engine(self, factory: CardFactory,
+                         strategy: GameStrategy) -> None:
         """
         Configures the game engine with a specific card factory and strategy.
-        Initializes the player's hand and battlefield based on the factory's 
+        Initializes the player's hand and battlefield based on the factory's
         output.
         Args:
             factory (CardFactory): The card factory to use for creating cards.
@@ -42,10 +44,12 @@ class GameEngine:
 
     def get_engine_status(self) -> dict:
         """
-        Returns the current status of the game engine, including the number of turns simulated,
+        Returns the current status of the game engine,
+        including the number of turns simulated,
         the strategy used, total damage dealt, and the number of cards created.
         Returns:
-            dict: A dictionary containing the current status of the game engine.
+            dict: A dictionary containing the current status
+            of the game engine.
         """
         engine_status = {
             "turns_simulated": self.turns_simulated,

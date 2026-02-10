@@ -1,5 +1,6 @@
 from ex3.GameStrategy import GameStrategy
 
+
 class AggressiveStrategy(GameStrategy):
     def execute_turn(self, hand: list, battlefield: list) -> dict:
         """
@@ -9,7 +10,8 @@ class AggressiveStrategy(GameStrategy):
 
         Args:
             hand (list): The player's current hand of cards.
-            battlefield (list): The current state of the battlefield with enemy targets.
+            battlefield (list): The current state of the
+            battlefield with enemy targets.
         Returns:
             dict: A summary of the actions taken during the turn, including:
                 - "cards_played": List of card names played.
@@ -52,6 +54,6 @@ class AggressiveStrategy(GameStrategy):
         return "Aggressive Strategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
-        """Prioritizes targets based on their cost, 
+        """Prioritizes targets based on their cost,
         with higher cost targets being more valuable to attack first."""
         return sorted(available_targets, key=lambda x: x.cost, reverse=True)

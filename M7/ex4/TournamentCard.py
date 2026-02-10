@@ -1,7 +1,7 @@
 from ex2.Combatable import Combatable
 from ex4.Rankable import Rankable
 from ex0.Card import Card
-from random import random
+
 
 class TournamentCard(Card, Combatable, Rankable):
     def __init__(self, name: str, id_card: str, rating: int):
@@ -10,7 +10,7 @@ class TournamentCard(Card, Combatable, Rankable):
         self.rating = rating
         self.wins = 0
         self.losses = 0
-    
+
     def play(self, game_state: dict) -> dict:
         if (game_state.get("active", False)):
             return {
@@ -18,7 +18,7 @@ class TournamentCard(Card, Combatable, Rankable):
                 'mana_used': self.cost,
                 'effect': 'Creature summoned to battlefield'
             }
-    
+
     def attack(self, target) -> dict:
         return {
             'attacker': self.name,
@@ -26,7 +26,7 @@ class TournamentCard(Card, Combatable, Rankable):
             'damage': 15,
             'combat_type': 'melee'
         }
-    
+
     def get_tournament_stats(self) -> dict:
         return {'game_played': self.wins + self.losses}
 
@@ -42,15 +42,16 @@ class TournamentCard(Card, Combatable, Rankable):
         return {"combat": True}
 
     def calculate_rating(self) -> int:
-        self.rating = abs(self.wins - self.losses) * random()
         return int(self.rating)
 
     def update_wins(self, wins: int) -> None:
         self.wins = wins
-    
+        self.rating += 16
+
     def update_losses(self, losses: int) -> None:
         self.losses = losses
-    
+        self.rating -= 16
+
     def get_rank_info(self) -> dict:
         return {"wins": self.wins,
                 "losses": self.losses,

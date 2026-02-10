@@ -1,11 +1,9 @@
-from ex2.Magical import Magical
-from ex2.Combatable import Combatable
 from ex2.EliteCard import EliteCard
-from ex0.CreatureCard  import CreatureCard
+from ex0.CreatureCard import CreatureCard
+
 
 def main() -> None:
     print("=== DataDeck Ability System ===\n")
-
 
     print("EliteCard Capabilities:")
     print("- Card: ['play', 'get_card_info', 'is_playable']")
@@ -29,7 +27,6 @@ def main() -> None:
     print(f"Spell cast: {spell_cast}")
     print(f"Mana channel: {mana_channel}")
     print("Multiple interface implementation successful!")
-
 
 
 if __name__ == "__main__":
