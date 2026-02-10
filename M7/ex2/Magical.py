@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Magical(ABC):
+    """Abstract base class for magical cards."""
     @abstractmethod
     def cast_spell(self, spell_name: str, targets: list) -> dict:
         ...

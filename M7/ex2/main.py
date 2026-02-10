@@ -3,6 +3,9 @@ from ex0.CreatureCard import CreatureCard
 
 
 def main() -> None:
+    """
+    Main function to demonstrate the EliteCard class.
+    """
     print("=== DataDeck Ability System ===\n")
 
     print("EliteCard Capabilities:")

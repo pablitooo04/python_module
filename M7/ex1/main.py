@@ -1,14 +1,16 @@
-try:
-    from ex0 import CreatureCard, Rarity
-    from ex1.Deck import Deck
-    from ex1.ArtifactCard import ArtifactCard
-    from ex1.SpellCard import SpellCard
-except ImportError:
-    print("Error: Could not import necessary classes.")
-    exit(1)
+
+from ex0 import CreatureCard, Rarity
+from ex1.Deck import Deck
+from ex1.ArtifactCard import ArtifactCard
+from ex1.SpellCard import SpellCard
+
+print("Error: Could not import necessary classes.")
 
 
 def main() -> None:
+    """
+    Main function to demonstrate the Deck class and its interaction.
+    """
     print("=== DataDeck Deck Builder ===\n")
 
     print("Building deck with different card types...")

@@ -3,6 +3,7 @@ from ex0 import Card
 
 
 class Combatable(ABC):
+    """Abstract base class for combat-capable cards."""
     @abstractmethod
     def attack(self, target: Card) -> dict:
         ...

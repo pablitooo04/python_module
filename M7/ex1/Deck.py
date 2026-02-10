@@ -3,13 +3,24 @@ from random import choice
 
 
 class Deck:
-    def __init__(self):
+    """A class representing a deck of cards in a card game."""
+    def __init__(self) -> None:
+        """Initializes an empty deck of cards."""
         self.deck = []
 
     def add_card(self, card: Card) -> None:
+        """Adds a card to the deck.
+        Args:
+            card (Card): The card to be added to the deck.
+        """
         self.deck.append(card)
 
     def remove_card(self, card_name: str) -> bool:
+        """Removes a card from the deck by its name.
+        Args:
+            card_name (str): The name of the card to be removed.
+        Returns:
+            bool: True if the card was successfully removed, False else"""
         try:
             index: int = self.deck.index(card_name)
         except ValueError:
@@ -19,6 +30,9 @@ class Deck:
             return True
 
     def shuffle(self) -> None:
+        """
+        Shuffles the deck of cards randomly.
+        """
         shuffled_deck: list = []
         for _ in range(len(self.deck)):
             card: Card = choice(self.deck)
@@ -28,11 +42,20 @@ class Deck:
         self.deck = shuffled_deck
 
     def draw_card(self) -> Card:
+        """
+        Draws a card from the top of the deck.
+        Returns:
+            Card: The card drawn from the top of the deck, or
+            None if the deck is empty.
+        """
         if not self.deck:
             return None
         return self.deck.pop(0)
 
     def get_deck_stats(self) -> dict:
+        """
+        Returns a dictionary containing statistics about the deck.
+        """
         stats = {
             'total_cards': len(self.deck),
             'creatures':

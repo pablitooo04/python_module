@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Rankable(ABC):
+    """Abstract base class for rankable entities in the tournament."""
     @abstractmethod
     def calculate_rating(self) -> int:
         ...

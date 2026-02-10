@@ -1,7 +1,14 @@
 from ex0.CreatureCard import CreatureCard
 from ex0.Card import Rarity
 
-if __name__ == "__main__":
+
+def main() -> None:
+    """
+    Main function to demonstrate the Abstract Base Class design pattern
+    using the Card and CreatureCard classes. It creates instances of
+    CreatureCard, displays their information, simulates playing a card,
+    and simulates an attack action, while also testing the is_playable method
+    with different mana values."""
     print("=== DataDeck Card Foundation ===\n")
 
     print("Testing Abstract Base Class Design:\n")
@@ -27,3 +34,7 @@ if __name__ == "__main__":
     print(f"Playable: {dragon_card.is_playable(3)}\n")
 
     print("Abstract pattern successfully demonstrated!")
+
+
+if __name__ == "__main__":
+    main()
