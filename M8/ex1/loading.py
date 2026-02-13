@@ -10,6 +10,7 @@ except ImportError:
 
 
 def main() -> None:
+    """Main function."""
     url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/" \
         "summary/all_day.geojson"
 

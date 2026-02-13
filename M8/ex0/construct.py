@@ -16,13 +16,15 @@ Safe to install packages without affecting
 the global system.
 """
 
+
 def in_virtualenv() -> bool:
     """
     Returns:
-        bool: True if the current Python interpreter is running 
+        bool: True if the current Python interpreter is running
         inside a virtual environment, False otherwise.
     """
     return sys.prefix != sys.base_prefix
+
 
 def main() -> None:
     """Main function."""
@@ -41,7 +43,7 @@ def main() -> None:
         print("Then run this program again.")
     else:
         print("\nMATRIX STATUS: Welcome to the construct\n")
-        
+
         print(f"Current Python: {sys.executable}")
         print(f"Virtual Environment: {sys.prefix.split(sep='/')[-1]}")
         print(f"Environment Path: {sys.prefix}\n")
@@ -51,6 +53,7 @@ def main() -> None:
         print("Package installation path:")
         print(site.getsitepackages()[0])
         # construct.py
+
 
 if __name__ == "__main__":
     main()
