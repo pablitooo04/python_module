@@ -5,11 +5,12 @@ except ImportError:
     exit(1)
 
 from datetime import datetime
-from typing import Optional, Self
+from typing import Optional
 from enum import Enum
 
 
 class ContactType(Enum):
+    """Enum for different types of alien contact. """
     RADIO = "radio"
     VISUAL = "visual"
     PHYSICAL = "physical"
@@ -17,6 +18,9 @@ class ContactType(Enum):
 
 
 class AlienContact(BaseModel):
+    """Model for logging alien contact reports with complex
+    validation rules.
+    """
     contact_id: str = Field(min_length=5, max_length=15)
     timestamp: datetime
     location: str = Field(min_length=3, max_length=100)
@@ -28,7 +32,14 @@ class AlienContact(BaseModel):
     is_verified: bool = False
 
     @model_validator(mode="after")
-    def custom_validator(self) -> Self:
+    def custom_validator(self) -> "AlienContact":
+        """
+        Custom validation rules for AlienContact. 
+        - contact_id must start with 'AC'
+        - Physical contacts must be verified
+        - Telepathic contacts require at least 3 witnesses
+        - Strong signals (> 7.0) require a received message
+        """
 
         if not self.contact_id.startswith("AC"):
             raise ValueError("contact_id must start with 'AC'")
@@ -51,6 +62,10 @@ class AlienContact(BaseModel):
 
 
 def main() -> None:
+    """
+    Main function to test the AlienContact model with
+    valid and invalid data.
+    """
     print("Alien Contact Log Validation")
     print("======================================")
 

@@ -8,6 +8,7 @@ from typing import Optional
 
 
 class SpaceStation(BaseModel):
+    """Basic model for a space station with validation rules. """
     station_id: str = Field(min_length=3, max_length=10)
     name: str = Field(min_length=1, max_length=50)
     crew_size: int = Field(ge=1, le=20)
@@ -19,6 +20,7 @@ class SpaceStation(BaseModel):
 
 
 def main() -> None:
+    """Test the SpaceStation model with valid and invalid data. """
     print("Space Station Data Validation")
     print("========================================")
     try:
