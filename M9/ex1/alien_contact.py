@@ -34,7 +34,7 @@ class AlienContact(BaseModel):
     @model_validator(mode="after")
     def custom_validator(self) -> "AlienContact":
         """
-        Custom validation rules for AlienContact. 
+        Custom validation rules for AlienContact.
         - contact_id must start with 'AC'
         - Physical contacts must be verified
         - Telepathic contacts require at least 3 witnesses
