@@ -52,7 +52,7 @@ def spell_dispatcher() -> callable:
 
     @cast.register
     def _(x: list):
-        result = f"Multi-cast result: {[cast(z) for z in x]}"
+        return f"Multi-cast result: {[cast(z) for z in x]}"
 
     return cast
 
